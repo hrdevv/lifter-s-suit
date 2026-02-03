@@ -1,0 +1,166 @@
+
+:root {
+    /* Brand Colors - Lifter's Suites */
+    --clr-primary: #1b5e20; /* Forest Green */
+    --clr-primary-light: #2e7d32;
+    --clr-primary-dark: #0d3b0e;
+    --clr-accent: #f57c00; /* Vibrant Orange */
+    --clr-accent-light: #ff9800;
+    
+    /* Backgrounds & Surfaces */
+    --clr-bg: #0a0a0a;
+    --clr-surface: #141414;
+    --clr-surface-alt: #1c1c1c;
+    --clr-glass: rgba(10, 10, 10, 0.9);
+    
+    /* Text Colors */
+    --clr-text-main: #e5e7eb;
+    --clr-text-muted: #9ca3af;
+    --clr-text-dim: #6b7280;
+    --clr-text-inv: #ffffff;
+    
+    /* Borders & Accents */
+    --clr-border: rgba(255, 255, 255, 0.1);
+    --clr-border-light: rgba(255, 255, 255, 0.05);
+    
+    /* Semantic Colors */
+    --clr-error: #f87171;
+    --clr-success: #4ade80;
+    
+    /* Typography */
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    
+    --transition-base: 0.3s ease;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--clr-text-main);
+    background-color: var(--clr-bg) !important;
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+}
+
+.text-brand-green { color: var(--clr-primary); }
+.text-brand-orange { color: var(--clr-accent); }
+
+.apt-card {
+    background-color: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.apt-card:hover {
+    border-color: var(--clr-primary);
+    transform: translateY(-4px);
+}
+
+.apt-card__img-wrapper {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.apt-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.apt-card:hover .apt-card__img {
+    transform: scale(1.05);
+}
+
+.apt-card__price-tag {
+    color: var(--clr-text-main);
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--clr-border-light);
+    border-left: 2px solid var(--clr-accent);
+    margin-bottom: var(--spacing-md);
+}
+
+.apt-card__btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    border: 1px solid var(--clr-primary);
+    color: var(--clr-primary);
+    padding: var(--spacing-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all var(--transition-base);
+}
+
+.apt-card__btn:hover {
+    background-color: var(--clr-primary);
+    color: white;
+}
+
+.form-input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--clr-border);
+    padding: var(--spacing-md);
+    color: white;
+    border-radius: 2px;
+    transition: border-color var(--transition-base);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--clr-accent);
+}
+
+.form-input--error { border-color: var(--clr-error); }
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-slide-up {
+    animation: slideInUp var(--transition-base) forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--clr-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--clr-primary-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-primary);
+}
